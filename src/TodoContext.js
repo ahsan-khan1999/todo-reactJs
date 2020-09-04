@@ -16,7 +16,8 @@ export const TodoProvider = ({children}) => {
         dispatch({
             type:'ADD_TODO',
             payload:{
-                name:obj.name
+                name:obj.name,
+                id:obj.id
             },
         })
     }
