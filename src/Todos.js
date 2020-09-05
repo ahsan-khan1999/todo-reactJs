@@ -10,7 +10,7 @@ export default function Todos() {
         event.preventDefault();
         addTodo({
             name:val,
-            id:Math.random()
+            id:Math.floor(Math.random())
         })
         setVal('')
     }

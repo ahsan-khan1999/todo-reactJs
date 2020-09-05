@@ -21,11 +21,18 @@ export const TodoProvider = ({children}) => {
             },
         })
     }
+    const deleteTodo = (id) => {
+        dispatch({
+            type:'DELETE_TODO',
+            payload:id
+        })
+    }
 
     return (
         <TodoContext.Provider value={{
             todos:state,
-            addTodo
+            addTodo,
+            deleteTodo
         }}>
             {children}
             </TodoContext.Provider>
