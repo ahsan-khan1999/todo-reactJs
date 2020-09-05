@@ -7,15 +7,15 @@ export default function ListTodos() {
     console.log(todos)
     return (
         <div>
-            <h2>Here Are Todo</h2>
-            
-                <ul className='list-todos'>
-                {todos.map(todo => 
-                    <Todo key ={todo.id} todo={todo} />
-    
-                )}
-                </ul>
-            
+         {todos.length > 0 ? (
+        <ul className="list">
+          {todos.map(todo => {
+            return <Todo todo={todo} key={todo.id} />;
+          })}
+        </ul>
+      ) : (
+        <div className="no-tasks">No Tasks</div>
+      )}
 
         </div>
     )

@@ -5,7 +5,9 @@ export default function Todo({todo}) {
     return (
         <li>
             {todo.name}
+            
             <button className='delete-btn' onClick={() => deleteTodo(todo.id)}>X</button>
+            
 
         </li>
     )

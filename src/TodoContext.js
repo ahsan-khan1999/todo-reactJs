@@ -1,36 +1,30 @@
-import React ,{createContext,useReducer} from 'react'
+import React ,{createContext,useState} from 'react'
 import todoReducer from './todoReducer'
+import { v4 as uuidv4 } from 'uuid';
 
-var todos = [
-    {name:'hello0',id:1},
-    {name:'hello1',id:2},
-    {name:'hello2',id:3},
-]
 
-export const TodoContext = createContext(todos);
+
+export const TodoContext = createContext();
 
 export const TodoProvider = ({children}) => {
-    const [state, dispatch] = useReducer(todoReducer, todos);
+    const [todos,setTodos] = useState([
+        {name:'hello0',id:1},
+        {name:'hello1',id:2},
+        {name:'hello2',id:3},
+    ]);
 
-    const addTodo = (obj) => {
-        dispatch({
-            type:'ADD_TODO',
-            payload:{
-                name:obj.name,
-                id:obj.id
-            },
-        })
+    const addTodo = (title) => {
+        setTodos([...todos,{name:title,id:uuidv4()}])
     }
     const deleteTodo = (id) => {
-        dispatch({
-            type:'DELETE_TODO',
-            payload:id
-        })
+        setTodos(todos.filter(todo => todo.id !== id))
     }
+    const editTodo = () => {
 
+    }
     return (
         <TodoContext.Provider value={{
-            todos:state,
+            todos,
             addTodo,
             deleteTodo
         }}>

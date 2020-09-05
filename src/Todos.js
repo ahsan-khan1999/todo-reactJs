@@ -8,14 +8,11 @@ export default function Todos() {
 
     function handleSubmit(event){
         event.preventDefault();
-        addTodo({
-            name:val,
-            id:Math.floor(Math.random())
-        })
+        addTodo(val)
         setVal('')
     }
 
-    console.log(val)
+    // console.log(val)
     return (
         <div>
             <form className='transaction-form' onSubmit={handleSubmit}>
@@ -25,7 +22,7 @@ export default function Todos() {
 
                     </label>
                     <br />
-                    <input type='submit' value='Add Transaction' style={{backgroundColor:'lightblue'}}/>
+                    <input type='submit' value='Add TODO' style={{backgroundColor:'lightblue'}}/>
             </form>
             
             

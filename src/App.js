@@ -6,14 +6,14 @@ import ListTodos from './ListTodos';
 import {TodoProvider} from './TodoContext'
 function App() {
   return (
-    
+<TodoProvider>    
     <div className="App">
-<TodoProvider>
+
      <Todos />
      <ListTodos />
-     </TodoProvider > 
+
     </div>
-    
+     </TodoProvider >     
   );
 }
 
